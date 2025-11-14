@@ -7,52 +7,99 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Custom Tailwind Config for Colors -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        panel: "#2D2F3A",
+                        panelDark: "#1C1E26",
+                        inputBox: "#20222B",
+                        primaryBtn: "#6C63FF",
+                        primaryBtnDark: "#5A52E0"
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body class="bg-slate-900 min-h-screen flex justify-center py-12 text-white">
+<body class="bg-[#0C1126] min-h-screen flex justify-center py-12 text-white">
 
-    <div class="w-full max-w-lg bg-slate-800 p-6 rounded-2xl shadow-lg">
-        <h1 class="text-center text-3xl font-bold mb-6">Todo List</h1>
+    <div class="w-full max-w-3xl bg-panel p-8 rounded-2xl shadow-2xl border border-white/10">
+        
+        <h1 class="text-center text-3xl font-bold mb-8">Todo List</h1>
 
-        <!-- Form -->
-        <form id="todo-form" class="flex gap-3">
+        <!-- Top Input Section -->
+        <div class="flex items-center gap-3">
+            <!-- Task input -->
             <input
                 id="task-input"
                 type="text"
-                placeholder="Add task..."
-                class="flex-1 p-3 rounded-lg bg-slate-700 text-white outline-none"
+                placeholder="Add a todo . . ."
+                class="flex-1 p-3 rounded-lg bg-inputBox text-white placeholder-gray-400 outline-none border border-white/10"
             >
 
+            <!-- Date input -->
             <input
                 id="date-input"
                 type="date"
-                class="p-3 rounded-lg bg-slate-700 text-white outline-none"
+                class="p-3 rounded-lg bg-inputBox text-white outline-none border border-white/10"
             >
+
+            <!-- Add button -->
+            <button
+                id="add-btn"
+                class="w-12 h-12 flex items-center justify-center bg-primaryBtn hover:bg-primaryBtnDark rounded-lg text-2xl transition"
+            >
+                +
+            </button>
+        </div>
+
+        <!-- Filter + Delete All row -->
+        <div class="flex justify-between items-center mt-6">
+            <button
+                id="filter-btn"
+                class="px-4 py-2 bg-inputBox border border-white/10 rounded-lg hover:bg-inputBox/80 transition"
+            >
+                FILTER
+            </button>
 
             <button
-                type="submit"
-                class="px-4 bg-indigo-500 rounded-lg hover:bg-indigo-600 transition"
+                id="delete-all"
+                class="px-4 py-2 bg-primaryBtn hover:bg-primaryBtnDark rounded-lg transition"
             >
-                Add
+                DELETE ALL
             </button>
-        </form>
+        </div>
 
-        <!-- Filter -->
-        <select
-            id="filter"
-            class="w-full mt-4 p-3 rounded-lg bg-slate-700 text-white"
-        >
-            <option value="all">All</option>
-            <option value="completed">Completed</option>
-            <option value="uncompleted">Uncompleted</option>
-        </select>
+        <!-- Table List -->
+        <div class="bg-panelDark p-4 mt-6 rounded-xl border border-white/10">
+            <table class="w-full text-left text-sm">
+                <thead class="uppercase text-gray-400 border-b border-white/10 pb-2">
+                    <tr>
+                        <th class="py-2">Task</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
 
-        <!-- To-Do List -->
-        <ul id="todo-list" class="mt-6 space-y-3"></ul>
+                <tbody id="todo-table" class="text-gray-200">
+                    <tr>
+                        <td colspan="4" class="text-center py-4 text-gray-500">
+                            No task found
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
     </div>
 
     <!-- JS File -->
     <script src="js/app.js"></script>
-
 </body>
 </html>
