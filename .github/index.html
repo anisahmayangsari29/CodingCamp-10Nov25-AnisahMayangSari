@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List</title>
+    <title>Todo List Pastel Green</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Custom Tailwind Config for Colors -->
+    <!-- Custom Tailwind Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        panel: "#2D2F3A",
-                        panelDark: "#1C1E26",
-                        inputBox: "#20222B",
-                        primaryBtn: "#6C63FF",
-                        primaryBtnDark: "#5A52E0"
+                        pastelBg: "#E9F8EF",
+                        pastelPanel: "#D3F3DF",
+                        pastelDark: "#C2EBD3",
+                        pastelAccent: "#A8E6C1",
+                        pastelButton: "#97DDB4",
+                        pastelButtonDark: "#7BC99C",
+                        pastelText: "#3A5F4B",
                     }
                 }
             }
@@ -26,59 +28,63 @@
     </script>
 </head>
 
-<body class="bg-[#0C1126] min-h-screen flex justify-center py-12 text-white">
+<body class="bg-pastelBg min-h-screen flex justify-center py-12 text-pastelText relative overflow-hidden">
 
-    <div class="w-full max-w-3xl bg-panel p-8 rounded-2xl shadow-2xl border border-white/10">
+    <!-- Cute Decorations -->
+    <div class="absolute top-10 left-10 text-5xl opacity-25">🍃</div>
+    <div class="absolute bottom-16 right-16 text-6xl opacity-25">☁️</div>
+    <div class="absolute top-1/2 right-8 text-4xl opacity-25">✨</div>
+
+    <div class="w-full max-w-3xl bg-pastelPanel p-8 rounded-3xl shadow-xl border border-pastelDark/60 backdrop-blur-sm">
         
-        <h1 class="text-center text-3xl font-bold mb-8">Todo List</h1>
+        <h1 class="text-center text-4xl font-bold mb-8 flex items-center justify-center gap-3">
+            <span>🌿</span> Todo List <span>🌱</span>
+        </h1>
 
-        <!-- Top Input Section -->
+        <!-- Form Input Section -->
         <div class="flex items-center gap-3">
-            <!-- Task input -->
             <input
                 id="task-input"
                 type="text"
-                placeholder="Add a todo . . ."
-                class="flex-1 p-3 rounded-lg bg-inputBox text-white placeholder-gray-400 outline-none border border-white/10"
+                placeholder="Add a cute task . . . ✨"
+                class="flex-1 p-3 rounded-xl bg-white text-pastelText placeholder-gray-400 outline-none border border-pastelAccent shadow-inner"
             >
 
-            <!-- Date input -->
             <input
                 id="date-input"
                 type="date"
-                class="p-3 rounded-lg bg-inputBox text-white outline-none border border-white/10"
+                class="p-3 rounded-xl bg-white text-pastelText outline-none border border-pastelAccent shadow-inner"
             >
 
-            <!-- Add button -->
             <button
                 id="add-btn"
-                class="w-12 h-12 flex items-center justify-center bg-primaryBtn hover:bg-primaryBtnDark rounded-lg text-2xl transition"
+                class="w-12 h-12 flex items-center justify-center bg-pastelButton hover:bg-pastelButtonDark rounded-xl text-2xl shadow-md transition"
             >
                 +
             </button>
         </div>
 
-        <!-- Filter + Delete All row -->
+        <!-- Filter + Delete All -->
         <div class="flex justify-between items-center mt-6">
             <button
                 id="filter-btn"
-                class="px-4 py-2 bg-inputBox border border-white/10 rounded-lg hover:bg-inputBox/80 transition"
+                class="px-4 py-2 bg-white border border-pastelAccent rounded-xl hover:bg-pastelDark transition shadow-sm"
             >
-                FILTER
+                FILTER 🍀
             </button>
 
             <button
                 id="delete-all"
-                class="px-4 py-2 bg-primaryBtn hover:bg-primaryBtnDark rounded-lg transition"
+                class="px-4 py-2 bg-pastelButton hover:bg-pastelButtonDark rounded-xl transition shadow-md"
             >
-                DELETE ALL
+                DELETE ALL 🗑️
             </button>
         </div>
 
-        <!-- Table List -->
-        <div class="bg-panelDark p-4 mt-6 rounded-xl border border-white/10">
+        <!-- Table -->
+        <div class="bg-pastelDark p-4 mt-6 rounded-2xl border border-pastelAccent shadow-inner">
             <table class="w-full text-left text-sm">
-                <thead class="uppercase text-gray-400 border-b border-white/10 pb-2">
+                <thead class="uppercase text-pastelText border-b border-pastelAccent pb-2">
                     <tr>
                         <th class="py-2">Task</th>
                         <th>Due Date</th>
@@ -87,10 +93,10 @@
                     </tr>
                 </thead>
 
-                <tbody id="todo-table" class="text-gray-200">
+                <tbody id="todo-table" class="text-pastelText">
                     <tr>
                         <td colspan="4" class="text-center py-4 text-gray-500">
-                            No task found
+                            No cute tasks yet 🌸
                         </td>
                     </tr>
                 </tbody>
@@ -99,7 +105,6 @@
 
     </div>
 
-    <!-- JS File -->
     <script src="js/app.js"></script>
 </body>
 </html>
