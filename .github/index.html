@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-slate-900 min-h-screen flex justify-center py-12 text-white">
+
+    <div class="w-full max-w-lg bg-slate-800 p-6 rounded-2xl shadow-lg">
+        <h1 class="text-center text-3xl font-bold mb-6">Todo List</h1>
+
+        <!-- Form -->
+        <form id="todo-form" class="flex gap-3">
+            <input
+                id="task-input"
+                type="text"
+                placeholder="Add task..."
+                class="flex-1 p-3 rounded-lg bg-slate-700 text-white outline-none"
+            >
+
+            <input
+                id="date-input"
+                type="date"
+                class="p-3 rounded-lg bg-slate-700 text-white outline-none"
+            >
+
+            <button
+                type="submit"
+                class="px-4 bg-indigo-500 rounded-lg hover:bg-indigo-600 transition"
+            >
+                Add
+            </button>
+        </form>
+
+        <!-- Filter -->
+        <select
+            id="filter"
+            class="w-full mt-4 p-3 rounded-lg bg-slate-700 text-white"
+        >
+            <option value="all">All</option>
+            <option value="completed">Completed</option>
+            <option value="uncompleted">Uncompleted</option>
+        </select>
+
+        <!-- To-Do List -->
+        <ul id="todo-list" class="mt-6 space-y-3"></ul>
+    </div>
+
+    <!-- JS File -->
+    <script src="js/app.js"></script>
+
+</body>
+</html>
