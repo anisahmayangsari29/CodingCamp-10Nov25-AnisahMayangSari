@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo List Pastel Green</title>
+    <title>Todo List </title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Custom Tailwind Config -->
+    <!-- Tailwind Custom Config -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        pastelBg: "#E9F8EF",
-                        pastelPanel: "#D3F3DF",
-                        pastelDark: "#C2EBD3",
-                        pastelAccent: "#A8E6C1",
-                        pastelButton: "#97DDB4",
-                        pastelButtonDark: "#7BC99C",
-                        pastelText: "#3A5F4B",
+                        galaxyBg: "#0a0f29",
+                        galaxyPanel: "#131b3a",
+                        galaxyAccent: "#6b5dfc",
+                        galaxyGlow: "#8f7bff",
+                        galaxyBlue: "#5ddCff",
+                    },
+                    boxShadow: {
+                        neon: "0 0 15px rgba(139, 92, 246, 0.7)",
+                        neonBlue: "0 0 15px rgba(93, 220, 255, 0.7)",
+                        neonPink: "0 0 15px rgba(255, 107, 214, 0.7)",
                     }
                 }
             }
@@ -28,37 +31,39 @@
     </script>
 </head>
 
-<body class="bg-pastelBg min-h-screen flex justify-center py-12 text-pastelText relative overflow-hidden">
+<body class="bg-galaxyBg min-h-screen flex justify-center py-12 text-white relative overflow-hidden">
 
-    <!-- Cute Decorations -->
-    <div class="absolute top-10 left-10 text-5xl opacity-25">🍃</div>
-    <div class="absolute bottom-16 right-16 text-6xl opacity-25">☁️</div>
-    <div class="absolute top-1/2 right-8 text-4xl opacity-25">✨</div>
+    <!-- Galactic Decorations -->
+    <div class="absolute top-10 left-10 text-5xl opacity-25">🪐</div>
+    <div class="absolute bottom-16 right-16 text-6xl opacity-25">✨</div>
+    <div class="absolute top-1/2 right-8 text-4xl opacity-25">🌟</div>
+    <div class="absolute top-1/3 left-1/4 text-6xl opacity-20">🌌</div>
 
-    <div class="w-full max-w-3xl bg-pastelPanel p-8 rounded-3xl shadow-xl border border-pastelDark/60 backdrop-blur-sm">
-        
-        <h1 class="text-center text-4xl font-bold mb-8 flex items-center justify-center gap-3">
-            <span>🌿</span> Todo List <span>🌱</span>
+    <!-- Main Panel -->
+    <div class="w-full max-w-3xl bg-galaxyPanel p-8 rounded-3xl shadow-neon border border-galaxyAccent/40 backdrop-blur-md">
+
+        <h1 class="text-center text-4xl font-bold mb-8 flex items-center justify-center gap-3 text-galaxyGlow drop-shadow-neon">
+            <span></span> ~ Daily Rhythm Notes ~ <span></span>
         </h1>
 
-        <!-- Form Input Section -->
+        <!-- Input Section -->
         <div class="flex items-center gap-3">
             <input
                 id="task-input"
                 type="text"
-                placeholder="Add a cute task . . . ✨"
-                class="flex-1 p-3 rounded-xl bg-white text-pastelText placeholder-gray-400 outline-none border border-pastelAccent shadow-inner"
+                placeholder="Add Your List ... "
+                class="flex-1 p-3 rounded-xl bg-galaxyBg text-white placeholder-gray-400 outline-none border border-galaxyAccent shadow-neonBlue"
             >
 
             <input
                 id="date-input"
                 type="date"
-                class="p-3 rounded-xl bg-white text-pastelText outline-none border border-pastelAccent shadow-inner"
+                class="p-3 rounded-xl bg-galaxyBg text-white outline-none border border-galaxyAccent shadow-neonBlue"
             >
 
             <button
                 id="add-btn"
-                class="w-12 h-12 flex items-center justify-center bg-pastelButton hover:bg-pastelButtonDark rounded-xl text-2xl shadow-md transition"
+                class="w-12 h-12 flex items-center justify-center bg-galaxyAccent hover:bg-galaxyGlow rounded-xl text-2xl shadow-neon transition"
             >
                 +
             </button>
@@ -68,35 +73,35 @@
         <div class="flex justify-between items-center mt-6">
             <button
                 id="filter-btn"
-                class="px-4 py-2 bg-white border border-pastelAccent rounded-xl hover:bg-pastelDark transition shadow-sm"
+                class="px-4 py-2 bg-transparent border border-galaxyGlow rounded-xl hover:bg-galaxyGlow/20 transition shadow-neonPink"
             >
-                FILTER 🍀
+                FILTER 🌟
             </button>
 
             <button
                 id="delete-all"
-                class="px-4 py-2 bg-pastelButton hover:bg-pastelButtonDark rounded-xl transition shadow-md"
+                class="px-4 py-2 bg-galaxyPink hover:bg-pink-500 rounded-xl transition shadow-neonPink"
             >
                 DELETE ALL 🗑️
             </button>
         </div>
 
         <!-- Table -->
-        <div class="bg-pastelDark p-4 mt-6 rounded-2xl border border-pastelAccent shadow-inner">
+        <div class="bg-galaxyBg/40 p-4 mt-6 rounded-2xl border border-galaxyAccent shadow-inner shadow-neonBlue">
             <table class="w-full text-left text-sm">
-                <thead class="uppercase text-pastelText border-b border-pastelAccent pb-2">
+                <thead class="uppercase text-galaxyBlue border-b border-galaxyAccent pb-2">
                     <tr>
-                        <th class="py-2">Task</th>
-                        <th>Due Date</th>
-                        <th>Status</th>
-                        <th>Actions</th>
+                         <th class="text-center">Task</th>
+                         <th class="text-center">Date</th>
+                         <th class="text-center">Status</th>
+                         <th class="text-center">Actions</th>
                     </tr>
                 </thead>
 
-                <tbody id="todo-table" class="text-pastelText">
+                <tbody id="todo-table" class="text-gray-200">
                     <tr>
-                        <td colspan="4" class="text-center py-4 text-gray-500">
-                            No cute tasks yet 🌸
+                        <td colspan="4" class="text-center py-4 text-gray-400">
+                            No list in the activity ~ 
                         </td>
                     </tr>
                 </tbody>
